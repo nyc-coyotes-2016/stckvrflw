@@ -1,6 +1,31 @@
-<div>
+<div class="container">
 <h2> Welcome <%= @user.username %> !</h2>
-<div class ="questions">
 
-</div>
+  <div class ="questions">
+    <h3> Questions </h3>
+    <ul>
+      <% @questions.each do |question| %>
+      <li>
+        <a href="/questions/<%=question.id %>"><%= question.title %></a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class ="answers">
+  <h3> Answers </h3>
+    <ul>
+      <% @answers.each do |answer| %>
+      <li>
+      <%= answer.text %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="user_comment">
+  <h3> Comments </h3>
+    <ul>
+      <% @comments.each do |comment| %>
+      <li>
+        <%= comment.text %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -18,5 +18,9 @@ end
 get '/users/:id' do
   require_login
   @user = current_user
+  @questions = @user.questions
+  @answers = @user.answers
+  @comments = @user.comments
+  # binding.pry
   erb :'users/show'
 end
