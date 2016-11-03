@@ -1,11 +1,14 @@
-.comments{
-  margin-left:30px;
-  padding-bottom: 15px;
-}
+
 .container {
   margin-left: 10px;
 }
 
 .hidden {
   display:none;
+}
+
+.comments, .comments2{
+  margin-left:30px;
+  padding-bottom: 15px;
+  color:coral;
 }
