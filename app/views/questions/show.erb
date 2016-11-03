@@ -7,7 +7,7 @@
 </div>
 <button id="question_comment">Add Comment</button>
 <form class='hidden submitform' method = 'post' action='/questions/<%=@question.id%>/comments'>
-  <textarea name='text' row=20 col=20> </textarea>
+  <textarea name='text' rows=5 col=20> </textarea>
   <input type='submit' value="press me">
 </form>
   <h4> Comments: </h4>
@@ -27,6 +27,7 @@
 
 <% if !@question.answers.empty? %>
   <h2><%=@question.answers.count%> Answers </h2>
+  <div class='answerwrapper'>
     <%@question.answers.each do |answer|%>
     <div class="answers" id="answer<%=answer.id %>">
       <%=answer.votes.pluck(:vote_direction).sum%> POINTS
@@ -34,7 +35,7 @@
       Answer By: <%=answer.user.username%>
       <button id="answer_comment">Add Comment</button>
       <form class='hidden submitform2' method = 'post' action='/questions/<%=@question.id%>/answers/<%=answer.id %>/comments'>
-        <textarea name='text' row=20 col=20> </textarea>
+        <textarea name='text' rows=5 cols=20> </textarea>
         <input type='submit' value="ANSWER COMMENT SUBMIT BUTT">
       </form>
 
@@ -52,5 +53,13 @@
     </div>
     </div>
     <%end%>
+  </div>
 <%end%>
+<div class="answer_form">
+  <h3> Your Answer </h3>
+  <form class='answer_form' method = 'post' action='/questions/<%=@question.id%>/answer'>
+    <textarea name='text' rows=15 cols=80> </textarea>
+    <input type='submit' value="Submit Answer">
+  </form>
+</div>
 </div>

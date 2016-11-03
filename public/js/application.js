@@ -66,4 +66,40 @@ $(document).ready(function() {
 
   });
 
+  $(document).on('submit', ".answer_form", function(event){
+
+    var temp = $(this)
+    data = $(this).serialize();
+    url = $(this).attr("action");
+    event.preventDefault();
+
+    $.ajax({
+          url: url,
+          method: "post",
+          data: data
+    }).done(function(response){
+      // debugger;
+      var text = "<div class=\"answers\" id=\"answer"+response["answer_id"]+">\
+        "+response["points"]+" POINTS\
+        "+response["text"] +"\
+        Answer By: "+response["username"]+"\
+        <button id=\"answer_comment\">Add Comment</button>\
+        <form class=\'hidden submitform2\' method = \'post\' action=\'/questions/"+response["question_id"]+"/answers/"+response["answer_id"]+"/comments'>\
+          <textarea name=\'text\' rows=5 cols=20> </textarea>\
+          <input type=\'submit\' value=\"ANSWER COMMENT SUBMIT BUTT\">\
+        </form>\
+        <div class=\'comments2\'>\
+          <h4> Comments: </h4>\
+      </div>\
+      </div>";
+      temp.parent().siblings('div.answerwrapper').append(text);
+      temp.trigger('reset');
+    })
+    .fail(function(response){
+
+    });
+
+  });
+
+
 });
