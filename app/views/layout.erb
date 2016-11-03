@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+
+  <title>Stckvrflw</title>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+            <a class="navbar-brand" href="/">Stckvrflw</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+
+              <a href="/users/<%= current_user.id %>">Hello <%= current_user.username %></a>
+              <a href="/logout"><span class="glyphicon glyphicon-log-out log"> </span></a>
+              <a href="/logout" class="btn btn-default btn-md">log out</a>
+            <% else %>
+              <a href="/users/new" ><span class="glyphicon glyphicon-log-in log"></span></a>
+              <a href="/users/new" class="btn btn-default btn-md">sign up</a>
+              <a href="/sessions/new"><span class="glyphicon glyphicon-log-in log"></span></a>
+              <a href="/sessions/new" class="btn btn-default btn-md">log in</a>
+
+            <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid text-center">
+      <div class="col-sm-2 text-left">
+      </div>
+      <div class="col-sm-8 text-left">
+          <%= yield %>
+      </div>
+      <div class="col-sm-2 text-left">
+      </div>
+  </div>
+
+</body>
+</html>
