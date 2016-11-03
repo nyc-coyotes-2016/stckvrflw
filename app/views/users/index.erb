@@ -1,0 +1,12 @@
+<div class="container">
+  <ul class="nav ">
+    <% if logged_in? %>
+      <a href="/logout" class="btn ">log out</a>
+      <a href="/users/<%= current_user.id %>"><%= current_user.username %></a>
+    <% else %>
+
+       <a href="/users/new" class="btn ">sign up</a>
+
+       <a href="/sessions/new" class="btn ">log in</a>
+     <% end %>
+   </ul>
