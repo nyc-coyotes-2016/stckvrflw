@@ -1,3 +1,6 @@
+get '/users' do
+  erb :'users/index'
+end
 get '/users/new' do
   erb :'users/new'
 end
@@ -10,7 +13,6 @@ post '/users' do
     redirect "/users/#{user.id}"
   else
     @errors=user.errors.full_messages
-
     erb :'users/new'
   end
 end
