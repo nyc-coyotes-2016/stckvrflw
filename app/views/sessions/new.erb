@@ -1,6 +1,7 @@
-<div>
+<div class="container">
   <form action='/sessions' method= 'post'>
-    <h2>Sign in</h2>
+    <h2>Log in</h2>
+    <%= erb :'_errors' %>
     <label for="username">Email</label>
     <input type="text" name ="user[email]" placeholder="email">
     <label for="username">Password</label>
