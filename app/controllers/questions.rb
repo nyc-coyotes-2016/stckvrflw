@@ -10,13 +10,16 @@ get '/questions/:id' do
 end
 
 post '/questions/:id/comments' do
+
   curr_question = Question.find(params[:id])
   new_comment = Comment.new(user: current_user, text: params["text"], commentable: curr_question)
   if request.xhr?
     if new_comment.save
       status 200
+      content_type :json
+      {comment_text: new_comment.text, user_name: new_comment.user.username}.to_json
     else
-      status 400
+      status 410
     end
   end
 end
