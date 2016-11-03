@@ -1,12 +1,10 @@
-get '/users' do
-  erb :'users/index'
-end
 get '/users/new' do
   erb :'users/new'
 end
 
 post '/users' do
   user =User.new(params[:user])
+
   if user.save
     status 200
     session[:user_id]=user.id
