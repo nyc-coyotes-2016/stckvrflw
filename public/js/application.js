@@ -1,7 +1,15 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $(document).on('click', "#question_comment", function(event){
+  event.preventDefault();
+  $(this).siblings('form').removeClass('hidden');
+  $(this).addClass('hidden');
 });
+
+});
+
+
+
+// $.ajax({
+//       url: "/questions/id/comments/new",
+//       method: "post"
+//     })
