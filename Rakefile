@@ -137,6 +137,12 @@ desc 'Start IRB with application environment loaded'
 task "console" do
   exec "irb -r./config/environment"
 end
+task "x" do
+  Rake::Task["db:drop"].execute
+  Rake::Task["db:create"].execute
+  Rake::Task["db:migrate"].execute
+  Rake::Task["db:seed"].execute
+end
 
 
 # In a production environment like Heroku, RSpec might not
