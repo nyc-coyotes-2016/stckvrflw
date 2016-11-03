@@ -1,0 +1,47 @@
+<div class ='container'>
+<h1><%=@question.title%></h1>
+
+<div class='question'>
+  <%=@question.votes.pluck(:vote_direction).sum%> POINTS
+  <p><%=@question.text%> </p>
+</div>
+<button id="question_comment">Add Comment</button>
+<form class='hidden' method = 'post' action='/questions/<%=@question.id%>/comments/new'>
+  <textarea name='text' row=20 col=20> </textarea>
+  <input type='submit' value="press me">
+</form>
+<div class='comments'>
+  <% if !@question.comments.empty? %>
+  <h4> Comments: </h4>
+    <%@question.comments.each do |comment|%>
+      <div>
+          AMAZING COMMENT:<%=comment.text%> <br>
+          COMMENT BY:<%=comment.user.username%>
+      </div>
+    <%end%>
+</div>
+<% end %>
+
+<% if !@question.answers.empty? %>
+  <h2><%=@question.answers.count%> Answers </h2>
+    <%@question.answers.each do |answer|%>
+    <div class="answers" id="answer<%=answer.id %>">
+      <%=answer.votes.pluck(:vote_direction).sum%> POINTS
+      <%=answer.text%>
+      Answer By: <%=answer.user.username%>
+      <% if !answer.comments.empty? %>
+      <div class='comments'>
+        <h4> Comments: </h4>
+          <%answer.comments.each do |comment|%>
+            <div>
+                <%=comment.votes.pluck(:vote_direction).sum%> POINTS
+                <%=comment.text%>
+                <%=comment.user.username%>
+            </div>
+          <%end%>
+      </div>
+      <%end%>
+    </div>
+    <%end%>
+<%end%>
+</div>

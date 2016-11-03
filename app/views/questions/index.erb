@@ -1,0 +1,10 @@
+<h1> Welcome to Stckvrflw! </h1>
+<h2> Current Questions: </h2>
+<% @questions.each do |question| %>
+  <div class="questions" id="question<%=question.id %>">
+    Title : <a href='/questions/<%=question.id%>'><%= question.title %></a>,
+    <%= question.answers.count %> Answers,
+    <%= question.votes.pluck(:vote_direction).sum %> Votes,
+    Asked By: <%= question.user.username %>
+  </div>
+<% end %>
