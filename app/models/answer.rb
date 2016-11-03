@@ -6,4 +6,7 @@ class Answer < ActiveRecord::Base
 
   validates_presence_of :text, :question, :user
 
+  def time_since_creation
+    ((Time.now - created_at)/3600).round
+  end 
 end

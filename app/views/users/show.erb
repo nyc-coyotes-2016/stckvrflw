@@ -1,12 +1,17 @@
 <div class="container">
 <h2> Welcome <%= @user.username %> !</h2>
-
+<div class ="Summary">
+    <h5><em>SUMMARY COUNT</em> - Questions :  <%= @questions.count%>
+    - Answers :  <%= @answers.count%>
+    - Comments :  <%= @comments.count%> </h5>
+</div>
   <div class ="questions">
     <h3> Questions </h3>
+
     <ul>
       <% @questions.each do |question| %>
       <li>
-        <a href="/questions/<%=question.id %>"><%= question.title %></a></li>
+        <a href="/questions/<%=question.id %>"><%= question.title %></a> - <%= question.time_since_creation  %> hours ago</li>
       <% end %>
     </ul>
   </div>
@@ -15,7 +20,7 @@
     <ul>
       <% @answers.each do |answer| %>
       <li>
-      <%= answer.text %></li>
+      <%= answer.text %> - <%= answer.time_since_creation %> hours ago</li>
       <% end %>
     </ul>
   </div>
@@ -24,7 +29,7 @@
     <ul>
       <% @comments.each do |comment| %>
       <li>
-        <%= comment.text %></li>
+        <%= comment.text %>  -  <%= comment.time_since_creation %> hours ago </li>
       <% end %>
     </ul>
   </div>
