@@ -16,5 +16,7 @@ post '/users' do
 end
 
 get '/users/:id' do
+  require_login
+  @user = current_user
   erb :'users/show'
 end
