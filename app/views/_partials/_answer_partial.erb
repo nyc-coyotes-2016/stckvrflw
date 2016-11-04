@@ -1,0 +1,18 @@
+<div class="answers" id="answer<%=answer.id %>">
+  <%= erb :'_partials/_point_partial', layout: false, locals: { comment: nil, question: question, answer: answer} %>
+  <%=answer.text%>
+  Answer By: <%=answer.user.username%>
+  <button id="answer_comment">Add Comment</button>
+  <form class='hidden submitform2' method = 'post' action='/questions/<%=question.id%>/answers/<%=answer.id %>/comments'>
+    <textarea name='text' rows=5 cols=20> </textarea>
+    <input type='submit' value="ANSWER COMMENT SUBMIT BUTT">
+  </form>
+
+  <div class='comments2'>
+  <% if !answer.comments.empty? %>
+      <%answer.comments.each do |comment|%>
+      <%= erb :'_partials/_comment_partial', layout: false, locals: { comment: nil, question: question, answer: answer } %>
+      <%end%>
+  <%end%>
+</div>
+</div>

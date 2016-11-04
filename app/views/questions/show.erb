@@ -2,7 +2,7 @@
 <h1><%=@question.title%></h1>
 
 <div class='question'>
-  <%=@question.votes.pluck(:vote_direction).sum%> POINTS
+  <%= erb :'_partials/_point_partial', layout: false, locals: { comment: nil, question: @question, answer: nil} %>
   <p><%=@question.text%> </p>
 </div>
 <button id="question_comment">Add Comment</button>
@@ -27,7 +27,7 @@
   <div class='answerwrapper'>
     <%@question.answers.each do |answer|%>
     <div class="answers" id="answer<%=answer.id %>">
-      <%=answer.votes.pluck(:vote_direction).sum%> POINTS
+      <%= erb :'_partials/_point_partial', layout: false, locals: { comment: nil, question: @question, answer: answer} %>
       <%=answer.text%>
       Answer By: <%=answer.user.username%>
       <button id="answer_comment">Add Comment</button>
@@ -47,6 +47,7 @@
     <%end%>
   </div>
 <%end%>
+<br>
 <div class="answer_form">
   <h3> Your Answer </h3>
   <form class='answer_form' method = 'post' action='/questions/<%=@question.id%>/answer'>
