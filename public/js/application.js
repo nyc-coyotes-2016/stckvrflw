@@ -1,9 +1,33 @@
 $(document).ready(function() {
-  $(document).on('click', "#question_comment", function(event){
-  event.preventDefault();
-  $(this).siblings('form').removeClass('hidden');
-  $(this).addClass('hidden');
-  });
+
+    $(document).on('click', ".vote-button", function(event){
+    event.preventDefault();
+    var data = {};
+    var comment_id= $(this).parent('.points').parent('.comment_container').attr('id').replace("comment", "");
+    data["comment_id"] = comment_id;
+
+    debugger
+    if ($(this).hasClass('upvote-button'))
+    {
+      data["vote_direction"] = 1;
+    }
+    else
+    {
+      data["vote_direction"] = -1;
+    }
+    // $.ajax({
+    //       url: url,
+    //       method: "post",
+    //       data: data
+
+
+    });
+
+    $(document).on('click', "#question_comment", function(event){
+    event.preventDefault();
+    $(this).siblings('form').removeClass('hidden');
+    $(this).addClass('hidden');
+    });
 
     $(document).on('click', "#answer_comment", function(event){
     event.preventDefault();
@@ -24,11 +48,7 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
 
-      var text = "<div>\
-          AMAZING COMMENT: "+response["comment_text"]+"<br>\
-          COMMENT BY: "+response["user_name"]+"\
-      </div>"
-      temp.siblings('div.comments').append(text);
+      temp.siblings('div.comments').append(response);
       temp.siblings('button').removeClass('hidden');
       temp.addClass('hidden');
       temp.trigger('reset');
@@ -51,11 +71,8 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
 
-      var text = "<div>\
-          AMAZING COMMENT: "+response["comment_text"]+"<br>\
-          COMMENT BY: "+response["user_name"]+"\
-      </div>"
-      temp.siblings('div.comments2').append(text);
+
+      temp.siblings('div.comments2').append(response);
       temp.siblings('button').removeClass('hidden');
       temp.addClass('hidden');
       temp.trigger('reset');
@@ -79,7 +96,7 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
       // debugger;
-      var text = "<div class=\"answers\" id=\"answer"+response["answer_id"]+">\
+      var text = "<div class=\"answers\" id=\"answer"+response["answer_id"]+"\">\
         "+response["points"]+" POINTS\
         "+response["text"] +"\
         Answer By: "+response["username"]+"\
@@ -89,7 +106,6 @@ $(document).ready(function() {
           <input type=\'submit\' value=\"ANSWER COMMENT SUBMIT BUTT\">\
         </form>\
         <div class=\'comments2\'>\
-          <h4> Comments: </h4>\
       </div>\
       </div>";
       temp.parent().siblings('div.answerwrapper').append(text);
