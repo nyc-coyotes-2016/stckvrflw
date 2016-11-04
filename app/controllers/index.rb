@@ -46,5 +46,11 @@ delete '/questions/:id' do
   @question = Question.find_by(id: params[:id])
   @question.destroy
   redirect '/users/:id'
+end
 
+get '/questions/:id/best'
+    require_login
+    @question = Question.find_by(id: params[:id])
+    @answers = Answer.find_by(id: params[:id])
+    
 end
