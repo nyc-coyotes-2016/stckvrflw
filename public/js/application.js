@@ -24,9 +24,9 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
 
-      var text = "<div>\
-          AMAZING COMMENT: "+response["comment_text"]+"<br>\
-          COMMENT BY: "+response["user_name"]+"\
+      var text = "<div class='comment_container'>\
+          <p class='comment'>"+response["comment_text"]+"</p>\
+          <p class='username'>-"+response["user_name"]+"</p>\
       </div>"
       temp.siblings('div.comments').append(text);
       temp.siblings('button').removeClass('hidden');

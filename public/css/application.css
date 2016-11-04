@@ -12,3 +12,19 @@
   padding-bottom: 15px;
   color:coral;
 }
+
+.username {
+  font-style: italic;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  margin-left: 40px;
+}
+
+.comment{
+  font-size: 1.2em;
+  font-family: "Times New Roman", serif;
+}
+
+.comment_container{
+  border-bottom: 1px solid black;
+  width:50%;
+}

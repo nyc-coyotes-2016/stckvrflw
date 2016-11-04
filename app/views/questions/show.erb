@@ -15,9 +15,9 @@
 
   <% if !@question.comments.empty? %>
     <%@question.comments.each do |comment|%>
-    <div>
-          AMAZING COMMENT: <%=comment.text%> <br>
-          COMMENT BY: <%=comment.user.username%>
+    <div class =comment_container>
+          <p class='comment'><%=comment.text%></p>
+          <p class='username'>-<%=comment.user.username%></p>
     </div>
     <% end %>
     <% end %>
