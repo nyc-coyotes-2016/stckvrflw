@@ -89,7 +89,6 @@ $(document).ready(function() {
     data = $(this).serialize();
     url = $(this).attr("action");
     event.preventDefault();
-    debugger
     $.ajax({
           url: url,
           method: "post",
