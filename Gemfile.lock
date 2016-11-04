@@ -8,6 +8,7 @@ GEM
       activemodel (= 4.2.7.1)
       activesupport (= 4.2.7.1)
       arel (~> 6.0)
+    activerecord-reputation-system (3.0.1)
     activesupport (4.2.7.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -99,6 +100,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 4.2.0)
+  activerecord-reputation-system
   activesupport (~> 4.2.0)
   bcrypt
   capybara
