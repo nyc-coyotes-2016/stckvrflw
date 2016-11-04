@@ -15,13 +15,10 @@
 
   <% if !@question.comments.empty? %>
     <%@question.comments.each do |comment|%>
-    <div class =comment_container>
-          <p class='comment'><%=comment.text%></p>
-          <p class='username'>-<%=comment.user.username%></p>
-    </div>
-    <% end %>
+    <%= erb :'_partials/_comment_partial', layout: false, locals: { points: comment.votes.pluck(:vote_direction).sum, text: comment.text, username: comment.user.username } %>
     <% end %>
 
+    <% end %>
 </div>
 
 
@@ -42,11 +39,7 @@
       <div class='comments2'>
       <% if !answer.comments.empty? %>
           <%answer.comments.each do |comment|%>
-            <div>
-                <%=comment.votes.pluck(:vote_direction).sum%> POINTS
-                <%=comment.text%>
-                <%=comment.user.username%>
-            </div>
+          <%= erb :'_partials/_comment_partial', layout: false, locals: { points: comment.votes.pluck(:vote_direction).sum, text: comment.text, username: comment.user.username } %>
           <%end%>
       <%end%>
     </div>

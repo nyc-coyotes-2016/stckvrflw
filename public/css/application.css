@@ -17,14 +17,26 @@
   font-style: italic;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   margin-left: 40px;
+  /*padding-left: 20px;*/
 }
 
 .comment{
   font-size: 1.2em;
   font-family: "Times New Roman", serif;
+  /*padding-left: 20px;*/
 }
 
 .comment_container{
-  border-bottom: 1px solid black;
+  /*border-top: 1px solid black;
+  border-bottom: 1px solid black;*/
+  border: 1px solid black;
   width:50%;
+}
+
+.points{
+  font-size: 2em;
+  float: left;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 20px;
 }

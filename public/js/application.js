@@ -24,11 +24,7 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
 
-      var text = "<div class='comment_container'>\
-          <p class='comment'>"+response["comment_text"]+"</p>\
-          <p class='username'>-"+response["user_name"]+"</p>\
-      </div>"
-      temp.siblings('div.comments').append(text);
+      temp.siblings('div.comments').append(response);
       temp.siblings('button').removeClass('hidden');
       temp.addClass('hidden');
       temp.trigger('reset');
@@ -51,11 +47,8 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
 
-      var text = "<div>\
-          "+response["points"]+ " POINTS" + response["comment_text"] + "\
-           " + response["user_name"]+"\
-      </div>"
-      temp.siblings('div.comments2').append(text);
+
+      temp.siblings('div.comments2').append(response);
       temp.siblings('button').removeClass('hidden');
       temp.addClass('hidden');
       temp.trigger('reset');

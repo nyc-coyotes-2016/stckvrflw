@@ -16,8 +16,7 @@ post '/questions/:id/comments' do
   if request.xhr?
     if new_comment.save
       status 200
-      content_type :json
-      {comment_text: new_comment.text, user_name: new_comment.user.username}.to_json
+      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username }
     else
       status 410
     end
@@ -31,8 +30,7 @@ post '/questions/:id/answers/:answer_id/comments' do
   if request.xhr?
     if new_comment.save
       status 200
-      content_type :json
-      {points: new_comment.votes.pluck(:vote_direction).sum, comment_text: new_comment.text, user_name: new_comment.user.username}.to_json
+      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username }
     else
       status 410
     end
