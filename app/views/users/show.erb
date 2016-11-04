@@ -11,7 +11,9 @@
     <ul>
       <% @questions.each do |question| %>
       <li>
-        <a href="/questions/<%=question.id %>"><%= question.title %></a> - <%= question.time_since_creation  %> hours ago</li>
+        <a href="/questions/<%=question.id %>"><%= question.title %></a> created - <%= question.time_since_creation  %> hours ago
+      <a href="/questions/<%=question.id %>/edit">update</a>
+      </li>
       <% end %>
     </ul>
   </div>

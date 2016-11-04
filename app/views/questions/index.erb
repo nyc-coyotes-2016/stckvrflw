@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1> Welcome to Stckvrflw! </h1>
 <h2> Current Questions: </h2>
 <% @questions.each do |question| %>
@@ -8,3 +10,7 @@
     Asked By: <%= question.user.username %>
   </div>
 <% end %>
+
+<a href ="/questions/new"><h3>Ask a question</h3></a>
+
+</div>
