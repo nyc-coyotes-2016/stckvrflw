@@ -41,8 +41,11 @@
 
 .points{
   /*font-size: 2em;*/
-  float: left;
+  /*float: left;*/
+  display:inline-block;
 
+}
+.answers{
 }
 
 .upvote-button{

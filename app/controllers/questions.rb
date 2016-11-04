@@ -45,8 +45,7 @@ post '/questions/:id/answer' do
   if request.xhr?
     if new_answer.save
       status 200
-      content_type :json
-      {points: new_answer.votes.pluck(:vote_direction).sum, answer_id: new_answer.id, text: new_answer.text, question_id: curr_question.id,  username: new_answer.user.username}.to_json
+      erb :'_partials/_answer_partial' , layout: false, locals: { answer: new_answer, question: curr_question }
     else
       status 999
     end
