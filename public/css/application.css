@@ -6,11 +6,14 @@
 .hidden {
   display:none;
 }
-
+.question{
+  padding-bottom: 50px;
+  font-size: 1.5em;
+}
 .comments, .comments2{
-  margin-left:30px;
+  /*margin-left:30px;*/
   padding-bottom: 15px;
-  color:coral;
+  font-size: .8em;
 }
 
 .username {
@@ -21,10 +24,12 @@
 }
 
 .comment{
+
   font-size: 1.2em;
   font-family: "Times New Roman", serif;
-  padding-top: 5px;
-  padding-left: 10px;
+  padding-top: 20px;
+
+  padding-left: 50px;
   padding-right: 20px;}
 
 .comment_container{
@@ -33,37 +38,40 @@
   border: 1px solid black;
   width:50%;
 }
-.submitbutt{
+.submitbutt1, .submitbutt2{
 
   width:20px;
   height:20px;
 }
 
+.submitbutt1 {
+  background-color: green;
+
+}
+
+.submitbutt2 {
+  background-color: red;
+}
+
 .points{
   /*font-size: 2em;*/
   /*float: left;*/
-  display:inline-block;
+  /*position: relative;*/
+    /*float:left;
+    position: relative;*/
+    display: inline-block;
+    position: absolute;
+    left:0;
 
 }
 .answers{
-}
 
-.upvote-button{
-  /*width: 0;
-  height: 0;
-	border-left: 7px solid white;
-	border-right: 7px solid white;
-  border-bottom: 14px solid green;*/
+display:block;
+padding-bottom: 25px;
+padding-top: 25px;
 
 }
 
-.downvote-button{
-  /*width: 0;
-  height: 0;
-  border-left: 7px solid white;
-  border-right: 7px solid white;
-  border-top: 14px solid red;*/
-}
 .hidden {
   display:none;
 }
