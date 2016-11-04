@@ -32,7 +32,7 @@ post '/questions/:id/answers/:answer_id/comments' do
     if new_comment.save
       status 200
       content_type :json
-      {comment_text: new_comment.text, user_name: new_comment.user.username}.to_json
+      {points: new_comment.votes.pluck(:vote_direction).sum, comment_text: new_comment.text, user_name: new_comment.user.username}.to_json
     else
       status 410
     end

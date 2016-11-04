@@ -41,7 +41,6 @@
 
       <div class='comments2'>
       <% if !answer.comments.empty? %>
-        <h4> Comments: </h4>
           <%answer.comments.each do |comment|%>
             <div>
                 <%=comment.votes.pluck(:vote_direction).sum%> POINTS

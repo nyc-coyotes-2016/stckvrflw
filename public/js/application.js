@@ -52,8 +52,8 @@ $(document).ready(function() {
     }).done(function(response){
 
       var text = "<div>\
-          AMAZING COMMENT: "+response["comment_text"]+"<br>\
-          COMMENT BY: "+response["user_name"]+"\
+          "+response["points"]+ " POINTS" + response["comment_text"] + "\
+           " + response["user_name"]+"\
       </div>"
       temp.siblings('div.comments2').append(text);
       temp.siblings('button').removeClass('hidden');
@@ -79,7 +79,7 @@ $(document).ready(function() {
           data: data
     }).done(function(response){
       // debugger;
-      var text = "<div class=\"answers\" id=\"answer"+response["answer_id"]+">\
+      var text = "<div class=\"answers\" id=\"answer"+response["answer_id"]+"\">\
         "+response["points"]+" POINTS\
         "+response["text"] +"\
         Answer By: "+response["username"]+"\
@@ -89,7 +89,6 @@ $(document).ready(function() {
           <input type=\'submit\' value=\"ANSWER COMMENT SUBMIT BUTT\">\
         </form>\
         <div class=\'comments2\'>\
-          <h4> Comments: </h4>\
       </div>\
       </div>";
       temp.parent().siblings('div.answerwrapper').append(text);
