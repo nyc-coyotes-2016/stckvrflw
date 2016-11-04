@@ -42,17 +42,18 @@
 }
 
 .upvote-button{
-  width: 0;
+  /*width: 0;
   height: 0;
 	border-left: 7px solid white;
 	border-right: 7px solid white;
-  border-bottom: 14px solid green;
+  border-bottom: 14px solid green;*/
+
 }
 
 .downvote-button{
-  width: 0;
+  /*width: 0;
   height: 0;
   border-left: 7px solid white;
   border-right: 7px solid white;
-  border-top: 14px solid red;
+  border-top: 14px solid red;*/
 }
