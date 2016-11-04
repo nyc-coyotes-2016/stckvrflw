@@ -11,5 +11,5 @@ def require_login
 end
 
 def owner?
-  current_user == question.user
+  current_user == @question.user
 end

@@ -48,9 +48,12 @@ delete '/questions/:id' do
   redirect '/users/:id'
 end
 
-get '/questions/:id/best'
-    require_login
-    @question = Question.find_by(id: params[:id])
-    @answers = Answer.find_by(id: params[:id])
-    
-end
+# get '/questions/best/:id' do
+#     require_login
+#     @question = Question.find_by(id: params[:id])
+#     @answer = Answer.find_by(id: params[:id])
+#     if owner?
+#     @answer.best = true
+#     redirect "/questions/#{params[:id]}"
+#   end
+# end
