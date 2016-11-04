@@ -1,9 +1,33 @@
 $(document).ready(function() {
-  $(document).on('click', "#question_comment", function(event){
-  event.preventDefault();
-  $(this).siblings('form').removeClass('hidden');
-  $(this).addClass('hidden');
-  });
+
+    $(document).on('click', ".vote-button", function(event){
+    event.preventDefault();
+    var data = {};
+    var comment_id= $(this).parent('.points').parent('.comment_container').attr('id').replace("comment", "");
+    data["comment_id"] = comment_id;
+
+    debugger
+    if ($(this).hasClass('upvote-button'))
+    {
+      data["vote_direction"] = 1;
+    }
+    else
+    {
+      data["vote_direction"] = -1;
+    }
+    // $.ajax({
+    //       url: url,
+    //       method: "post",
+    //       data: data
+
+
+    });
+
+    $(document).on('click', "#question_comment", function(event){
+    event.preventDefault();
+    $(this).siblings('form').removeClass('hidden');
+    $(this).addClass('hidden');
+    });
 
     $(document).on('click', "#answer_comment", function(event){
     event.preventDefault();

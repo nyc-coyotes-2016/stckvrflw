@@ -16,7 +16,7 @@ post '/questions/:id/comments' do
   if request.xhr?
     if new_comment.save
       status 200
-      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username }
+      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username, id: new_comment.id }
     else
       status 410
     end
@@ -30,7 +30,7 @@ post '/questions/:id/answers/:answer_id/comments' do
   if request.xhr?
     if new_comment.save
       status 200
-      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username }
+      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username, id: new_comment.id }
     else
       status 410
     end

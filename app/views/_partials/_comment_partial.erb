@@ -1,5 +1,5 @@
-<div class='points'> <%=points %> </div>
-<div class =comment_container>
+<div class =comment_container id='comment<%=id%>'>
+  <%= erb :'_partials/_point_partial', layout: false, locals: { points: points } %>
       <p class='comment'><%=text%></p>
       <p class='username'>-<%=username%></p>
 </div>

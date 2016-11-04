@@ -40,3 +40,11 @@
   padding-left: 10px;
   padding-right: 20px;
 }
+
+.upvote-button{
+  background-color: green;
+}
+
+.downvote-button{
+  background-color: red;
+}
