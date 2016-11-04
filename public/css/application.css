@@ -57,3 +57,6 @@
   border-right: 7px solid white;
   border-top: 14px solid red;*/
 }
+.hidden {
+  display:none;
+}

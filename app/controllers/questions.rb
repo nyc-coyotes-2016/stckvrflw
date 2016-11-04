@@ -12,11 +12,12 @@ end
 post '/questions/:id/comments' do
 
   curr_question = Question.find(params[:id])
-  new_comment = Comment.new(user: current_user, text: params["text"], commentable: curr_question)
+  comment = Comment.new(user: current_user, text: params["text"], commentable: curr_question)
   if request.xhr?
-    if new_comment.save
+    if comment.save
       status 200
-      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username, id: new_comment.id }
+      # binding.pry
+      erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: curr_question }
     else
       status 410
     end
@@ -24,13 +25,14 @@ post '/questions/:id/comments' do
 end
 
 post '/questions/:id/answers/:answer_id/comments' do
+  curr_question = Question.find(params[:id])
 
   curr_ans= Answer.find(params[:answer_id])
-  new_comment = Comment.new(user: current_user, text: params["text"], commentable: curr_ans)
+  comment = Comment.new(user: current_user, text: params["text"], commentable: curr_ans)
   if request.xhr?
-    if new_comment.save
+    if comment.save
       status 200
-      erb :'_partials/_comment_partial', layout: false, locals: { points: new_comment.votes.pluck(:vote_direction).sum, text: new_comment.text, username: new_comment.user.username, id: new_comment.id }
+      erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: curr_question }
     else
       status 410
     end

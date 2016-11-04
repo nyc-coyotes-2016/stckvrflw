@@ -1,26 +1,40 @@
 $(document).ready(function() {
 
-    $(document).on('click', ".vote-button", function(event){
+    $(document).on('submit', ".vote", function(event){
     event.preventDefault();
+    var params = $(this).serializeArray();
+    var url = ''
     var data = {};
-    var comment_id= $(this).parent('.points').parent('.comment_container').attr('id').replace("comment", "");
+    for (var i =0; i<params.length; i ++){
+      url += '/' + params[i].name + '/' + params[i].value
+    }
+    url += "/votes"
+    if ($(this).hasClass('upvote')){data["vote_direction"] = 1;}
+    else{data["vote_direction"] = -1;}
+
+    debugger
+    // var comment_id= $(this).parent('.points').parent('.comment_container').attr('id').replace("comment", "");
     data["comment_id"] = comment_id;
 
     debugger
-    if ($(this).hasClass('upvote-button'))
+    if ($(this).hasClass('upvote-button')){data["vote_direction"] = 1;}
+    else{data["vote_direction"] = -1;}
+
+    if ($(this).parents('.comments').hasClass('questions_comments'))
     {
-      data["vote_direction"] = 1;
+      question_id = $(this).parents('.comments').children('p').attr('class')
+      url = '/questions/'+question_id + '/comment';
     }
-    else
-    {
-      data["vote_direction"] = -1;
+    else {
+      url = '/questions/'+question_id + '/answers/' + answer_id + '/comment';
     }
+
     // $.ajax({
     //       url: url,
     //       method: "post",
     //       data: data
-
-
+    //
+    //
     });
 
     $(document).on('click', "#question_comment", function(event){
