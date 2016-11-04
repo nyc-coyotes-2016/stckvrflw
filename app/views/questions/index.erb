@@ -3,14 +3,22 @@
 <h1> Welcome to Stckvrflw! </h1>
 <h2> Current Questions: </h2>
 <% @questions.each do |question| %>
-  <div class="questions" id="question<%=question.id %>">
-    Title : <a href='/questions/<%=question.id%>'><%= question.title %></a>,
+  <div class="questions row" id="question<%=question.id %>">
+    <!-- <div class="col-sm-1"></div> -->
+    <div class="col-sm-6">
+      <a href='/questions/<%=question.id%>' class="lead"><%= question.title %></a>
+     </div>
+   <div class="col-sm-3">
     <%= question.answers.count %> Answers,
     <%= question.votes.pluck(:vote_direction).sum %> Votes,
     Asked By: <%= question.user.username %>
   </div>
+  <div class="col-sm-3"></div>
+  </div>
+
 <% end %>
-
-<a href ="/questions/new"><h3>Ask a question</h3></a>
-
+<br>
+<div id="ask_question">
+<a href ="/questions/new" class="btn btn-danger add-question" role="button">Ask a question</a>
+</div>
 </div>

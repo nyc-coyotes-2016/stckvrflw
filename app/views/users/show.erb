@@ -10,10 +10,22 @@
 
     <ul>
       <% @questions.each do |question| %>
-      <li>
-        <a href="/questions/<%=question.id %>"><%= question.title %></a> created - <%= question.time_since_creation  %> hours ago
-      <a href="/questions/<%=question.id %>/edit">update</a>
+        <div class="questions row">
+
+            <div class="col-sm-6">
+                  <li>
+        <a href="/questions/<%=question.id %>"><%= question.title %></a>
+        created - <%= question.time_since_creation  %> hours ago
+        <a href="/questions/<%=question.id %>/edit"><span class='glyphicon glyphicon-pencil'></span></a></div>
+          <div class="col-sm-3">
+        <form method="post" action= "/questions/<%=question.id %>">
+          <input type="hidden" name="_method" value = "delete">
+          <input class= "glyphicon glyphicon-trash" type="submit" value="delete">
+        </div>
+            <div class="col-sm-3"></div>
+        </form>
       </li>
+        </div>
       <% end %>
     </ul>
   </div>
