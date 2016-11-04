@@ -42,9 +42,17 @@
 }
 
 .upvote-button{
-  background-color: green;
+  width: 0;
+  height: 0;
+	border-left: 7px solid white;
+	border-right: 7px solid white;
+  border-bottom: 14px solid green;
 }
 
 .downvote-button{
-  background-color: red;
+  width: 0;
+  height: 0;
+  border-left: 7px solid white;
+  border-right: 7px solid white;
+  border-top: 14px solid red;
 }
