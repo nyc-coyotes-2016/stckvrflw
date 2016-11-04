@@ -17,7 +17,7 @@ post '/questions/:id/comments' do
     if comment.save
       status 200
       # binding.pry
-      erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: curr_question }
+      erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: curr_question, answer: nil }
     else
       status 410
     end
@@ -32,7 +32,7 @@ post '/questions/:id/answers/:answer_id/comments' do
   if request.xhr?
     if comment.save
       status 200
-      erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: curr_question }
+      erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: curr_question, answer: curr_ans }
     else
       status 410
     end
