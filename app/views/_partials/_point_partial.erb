@@ -1,5 +1,35 @@
 <div class='points'>
- <button type="submit" name="submit_param" value="submit_value" class="glyphicon glyphicon-arrow-up vote-button upvote-button"></button>
- <%=points %>
- <button type="submit" name="submit_param" value="submit_value" class="glyphicon glyphicon-arrow-down vote-button downvote-button"></button>
+
+  <form class='vote upvote' method = 'post' action='/'>
+    <input type='text' class='hidden' name='questions' value='<%=question.id%>'>
+      <% if answer %>
+    <input type='text' class='hidden' name='answers' value='<%=answer.id%>'>
+      <%end %>
+      <% if comment %>
+    <input type='text' class='hidden' name='comments' value='<%=comment.id%>'>
+      <%end %>
+    <input class='submitbutt' type='submit' value="U">
+  </form>
+
+  <% if comment %>
+  <div class='current_votes'><%=comment.votes.pluck(:vote_direction).sum %></div>
+  <% elsif answer %>
+  <div class='current_votes'><%=answer.votes.pluck(:vote_direction).sum %></div>
+  <% else question %>
+  <div class='current_votes'><%=question.votes.pluck(:vote_direction).sum %></div>
+  <% end %>
+
+  <form class='vote downvote' method = 'post' action='/'>
+    <input type='text' class='hidden' name='questions' value='<%=question.id%>'>
+      <% if answer %>
+    <input type='text' class='hidden' name='answers' value='<%=answer.id%>'>
+      <%end %>
+      <% if comment %>
+    <input type='text' class='hidden' name='comments' value='<%=comment.id%>'>
+      <%end %>
+    <input class='submitbutt' type='submit' value="D">
+  </form>
+
+
+
 </div>

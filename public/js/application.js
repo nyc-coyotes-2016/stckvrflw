@@ -1,26 +1,26 @@
 $(document).ready(function() {
 
-    $(document).on('click', ".vote-button", function(event){
-    event.preventDefault();
-    var data = {};
-    var comment_id= $(this).parent('.points').parent('.comment_container').attr('id').replace("comment", "");
-    data["comment_id"] = comment_id;
+    $(document).on('submit', ".vote", function(event){
+      event.preventDefault();
+      var params = $(this).serializeArray();
+      var url = '';
+      var data = {};
+      for (var i =0; i<params.length; i ++){
+        url += '/' + params[i].name + '/' + params[i].value
+      }
+      url += "/votes"
+      if ($(this).hasClass('upvote')){data["vote_direction"] = 1;}
+      else{data["vote_direction"] = -1;}
 
-    debugger
-    if ($(this).hasClass('upvote-button'))
-    {
-      data["vote_direction"] = 1;
-    }
-    else
-    {
-      data["vote_direction"] = -1;
-    }
-    // $.ajax({
-    //       url: url,
-    //       method: "post",
-    //       data: data
+      var current = $(this);
+      $.ajax({
+            url: url,
+            method: "post",
+            data: data
+          }).done(function(response){
+            current.siblings('div.current_votes').text(response["points"]);
 
-
+          });
     });
 
     $(document).on('click', "#question_comment", function(event){

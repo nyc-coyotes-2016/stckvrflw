@@ -23,8 +23,9 @@
 .comment{
   font-size: 1.2em;
   font-family: "Times New Roman", serif;
-  /*padding-left: 20px;*/
-}
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 20px;}
 
 .comment_container{
   /*border-top: 1px solid black;
@@ -32,13 +33,16 @@
   border: 1px solid black;
   width:50%;
 }
+.submitbutt{
+
+  width:20px;
+  height:20px;
+}
 
 .points{
-  font-size: 2em;
+  /*font-size: 2em;*/
   float: left;
-  padding-top: 5px;
-  padding-left: 10px;
-  padding-right: 20px;
+
 }
 
 .upvote-button{
@@ -56,4 +60,7 @@
   border-left: 7px solid white;
   border-right: 7px solid white;
   border-top: 14px solid red;*/
+}
+.hidden {
+  display:none;
 }

@@ -11,11 +11,11 @@
   <input type='submit' value="press me">
 </form>
   <h4> Comments: </h4>
-  <div class='comments'>
-
+  <div class='comments questions_comments'>
   <% if !@question.comments.empty? %>
     <%@question.comments.each do |comment|%>
-    <%= erb :'_partials/_comment_partial', layout: false, locals: { points: comment.votes.pluck(:vote_direction).sum, text: comment.text, username: comment.user.username, id: comment.id} %>
+
+    <%= erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: @question, answer: nil} %>
     <% end %>
 
     <% end %>
@@ -39,7 +39,7 @@
       <div class='comments2'>
       <% if !answer.comments.empty? %>
           <%answer.comments.each do |comment|%>
-          <%= erb :'_partials/_comment_partial', layout: false, locals: { points: comment.votes.pluck(:vote_direction).sum, text: comment.text, username: comment.user.username, id: comment.id } %>
+          <%= erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: @question, answer: answer } %>
           <%end%>
       <%end%>
     </div>
