@@ -17,12 +17,15 @@
         <a href="/questions/<%=question.id %>"><%= question.title %></a>
         created - <%= question.time_since_creation  %> hours ago </div>
         <div class="col-sm-1">
-        <a href="/questions/<%=question.id %>/edit"><span class='glyphicon glyphicon-pencil'></span></a></div>
+        <a href="/questions/<%=question.id %>/edit"><span class='glyphicon  glyphicon-pencil'></span></a></div>
 
           <div class="col-sm-1">
         <form method="post" action= "/questions/<%=question.id %>">
           <input type="hidden" name="_method" value = "delete">
-          <input class= "glyphicon glyphicon-trash" type="submit" value="delete">
+          <button class="glyphicon no_outline" type="submit" type="hidden">
+              <span class="glyphicon glyphicon-trash "></span>
+              </button>
+            </form>
         </div>
             <div class="col-sm-4"></div>
         </form>

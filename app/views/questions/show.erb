@@ -26,13 +26,13 @@
   <h2><%=@question.answers.count%> Answers </h2>
   <div class='answerwrapper'>
     <%@question.answers.each do |answer|%>
-    <div class="answers" id="answer<%=answer.id %>">
+    <div class="answers id="answer<%=answer.id %>">
       <%= erb :'_partials/_point_partial', layout: false, locals: { comment: nil, question: @question, answer: answer} %>
-      <!-- <%=answer.text%>
-        <a href="/questions/best/<%= @question.id %>" >choose me</a>
+      <%=answer.text%>
+        <!-- <a href="/questions/best/<%= @question.id %>" >choose me</a>
        <% if answer.best %>
       <a href="/questions/best/<%= @question.id %>" ><span class= "glyphicon glyphicon-ok"></span></a>
-      <% end %> -->
+      <% end %> --> -->
       Answer By: <%=answer.user.username%>
       <button id="answer_comment">Add Comment</button>
       <form class='hidden submitform2' method = 'post' action='/questions/<%=@question.id%>/answers/<%=answer.id %>/comments'>
@@ -40,7 +40,7 @@
         <input type='submit' value="ANSWER COMMENT SUBMIT BUTT">
       </form>
 
-      <div class='comments2'>
+      <div class='comments2 col-xs-10'>
       <% if !answer.comments.empty? %>
           <%answer.comments.each do |comment|%>
           <%= erb :'_partials/_comment_partial', layout: false, locals: { comment: comment, question: @question, answer: answer } %>

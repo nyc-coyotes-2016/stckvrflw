@@ -35,7 +35,7 @@
 .comment_container{
   /*border-top: 1px solid black;
   border-bottom: 1px solid black;*/
-  border: 1px solid black;
+  /*border: 1px solid gray;*/
   width:50%;
 }
 .submitbutt1, .submitbutt2{
@@ -74,4 +74,11 @@ padding-top: 25px;
 
 .hidden {
   display:none;
+}
+
+.no_outline {
+  border: none;
+  background-color: white;
+  color: #3359FF;
+  outline: none !important;
 }

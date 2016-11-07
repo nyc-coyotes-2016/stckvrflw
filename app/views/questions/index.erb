@@ -17,8 +17,11 @@
   </div>
 
 <% end %>
+
+<% if logged_in? %>
 <br>
 <div id="ask_question">
 <a href ="/questions/new" class="btn btn-danger add-question" role="button">Ask a question</a>
 </div>
 </div>
+<% end %>

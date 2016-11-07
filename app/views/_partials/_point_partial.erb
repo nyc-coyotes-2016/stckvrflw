@@ -1,4 +1,6 @@
-<div class='points'>
+<div class='points center' >
+
+
 
   <form class='vote upvote' method = 'post' action='/'>
     <input type='text' class='hidden' name='questions' value='<%=question.id%>'>
@@ -8,15 +10,16 @@
       <% if comment %>
     <input type='text' class='hidden' name='comments' value='<%=comment.id%>'>
       <%end %>
-    <input class='submitbutt1' type='submit' value="">
+    <button class="glyphicon no_outline" type="submit" type="hidden"><span class="glyphicon glyphicon-triangle-top"></span>
+    </button>
   </form>
 
   <% if comment %>
-  <div class='current_votes'><%=comment.votes.pluck(:vote_direction).sum %></div>
+  <div class='current_votes text-center'><b><%=comment.votes.pluck(:vote_direction).sum %></b></div>
   <% elsif answer %>
-  <div class='current_votes'><%=answer.votes.pluck(:vote_direction).sum %></div>
+  <div class='current_votes text-center'><b><%=answer.votes.pluck(:vote_direction).sum %></b></div>
   <% else question %>
-  <div class='current_votes'><%=question.votes.pluck(:vote_direction).sum %></div>
+  <div class='current_votes text-center'><b><%=question.votes.pluck(:vote_direction).sum %></b></div>
   <% end %>
 
   <form class='vote downvote' method = 'post' action='/'>
@@ -27,7 +30,7 @@
       <% if comment %>
     <input type='text' class='hidden' name='comments' value='<%=comment.id%>'>
       <%end %>
-    <input class='submitbutt2' type='submit' value="">
+              <button class="glyphicon no_outline" type="submit" type="hidden"><span class="glyphicon glyphicon-triangle-bottom"></span></button>
   </form>
 
 
