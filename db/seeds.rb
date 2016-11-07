@@ -36,3 +36,5 @@ vote1 = Vote.create(user:jason, voteable:answer1, vote_direction:1)
 vote2 = Vote.create(user:lindsay, voteable:answer2, vote_direction:-1)
 vote3 = Vote.create(user:tim, voteable:answer1, vote_direction:1)
 vote4 = Vote.create(user:asiya, voteable:answer2, vote_direction:-1)
+
+ 
